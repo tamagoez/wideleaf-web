@@ -1,15 +1,13 @@
-const webpack = require("webpack");
-
+// https://github.com/konvajs/konva/issues/1458
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
+  experimental: {
+    appDir: true,
+    esmExternals: "loose", // required to make Konva & react-konva work
+  },
   webpack: (config) => {
-    config.plugins = [
-      ...config.plugins,
-      new webpack.IgnorePlugin({
-        resourceRegExp: /canvas/,
-        contextRegExp: /jsdom$/,
-      }),
-    ];
+    config.externals = [...config.externals, { canvas: "canvas" }];  // required to make Konva & react-konva work
     return config;
   },
 };

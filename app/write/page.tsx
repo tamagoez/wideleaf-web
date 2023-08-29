@@ -1,9 +1,6 @@
 import dynamic from "next/dynamic";
-
-const StageComponent = dynamic(() => import("../common/konva/canvas"), {
-  ssr: false,
-});
+import LeafBase from "../common/konva/base";
 
 export default function WritePage() {
-  return <StageComponent />;
+  return <LeafBase />;
 }
