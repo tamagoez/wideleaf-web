@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm-check-updates & next build",
+    "now-build": "yum install libuuid-devel libmount-devel zlib && cp /lib64/{libuuid,libmount,libblkid,libz}.so.1 node_modules/canvas/build/Release/ && npm run build",
     "start": "next start",
     "lint": "next lint",
     "ncu": "npm-check-updates -u"
@@ -13,11 +14,11 @@
     "@chakra-ui/react": "^2.8.0",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@napi-rs/canvas": "^0.1.44",
     "@types/node": "20.5.7",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
-    "canvas": "^2.11.2",
     "dexie": "^3.2.4",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
@@ -30,6 +31,6 @@
     "typescript": "5.2.2"
   },
   "devDependencies": {
-    "npm-check-updates": "^16.13.1"
+    "npm-check-updates": "^16.13.2"
   }
 }
